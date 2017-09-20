@@ -1,0 +1,159 @@
+% !TeX spellcheck = en_US
+\documentclass[letterpaper]{article}
+
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{balance}  % for  \balance command ON LAST PAGE  (only there!)
+\usepackage{amsfonts}
+\usepackage{url}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+\makeatletter
+\newif\if@restonecol
+\makeatother
+\let\algorithm\relax
+\let\endalgorithm\relax
+\usepackage[linesnumbered,boxed,ruled,vlined]{algorithm2e}
+\usepackage{float}
+\usepackage{amssymb,amsmath,epsfig,graphics,enumerate,float,subfigure}
+\usepackage{color}
+\usepackage{xspace}
+\usepackage{multirow}
+
+
+
+
+\def\ie{$i.e.$}
+\def\prox{\textrm{prox}}
+\def\dom{\textrm{dom}}
+
+
+\begin{document}
+	
+\section{definition}
+\paragraph{F means R or C}
+\paragraph{Direct Sum $\oplus$}:\\
+$V=U_1\oplus U_2$, if each element of $V$ can be written as $u_1+u_2$ where each $u_i \in U_i$.
+\paragraph{Null Spaces and Ranges}:\\
+\begin{displaymath}
+null\ T = \{v \in V : Tv = 0\}
+\end{displaymath}
+\begin{displaymath}
+range\ T = \{Tv  : v \in V\}
+\end{displaymath}
+\paragraph{Injective}:\\
+$T: V \to W$ is a injective linear map,
+\begin{displaymath}
+\textrm{If whenever }u,v \in V and\  Tu=Tv, \textrm{We have }u=v.
+\end{displaymath}
+or equally,
+\begin{displaymath}
+null\ T =\{0\}
+\end{displaymath}
+\paragraph{Surjective}:\\
+$T: V \to W$ is a surjective linear map, if its range equals $W$
+\paragraph{theorem}:
+dim $V$ = dim null $T$ + dim range $T$.
+\paragraph{theorem}:
+$T: V \to W$ is invertible $\iff$ it is injective and surjective. In this case, $V$ and $W$ are called isomorphic with same dim.
+\paragraph{theorem}:
+If $T: V \to V$ (is a operator). $T$ is invertible $\iff$ $T$ is injective $\iff$ $T$ is surjective. 
+\paragraph{Invariant Subspaces}:
+\begin{displaymath}
+V=U_1\oplus...\oplus U_m,
+\end{displaymath}
+$T\arrowvert_{U_j}$ denotes restrict $T \in L(V)$ on $U_j$. $U$ is invariant if $T\arrowvert_{U}$ is an operator on $U$.
+
+\paragraph{Eigenvalue and Eigenvector}:
+Suppose $U$ is a 1-dim subspace of V,
+\begin{displaymath}
+U=\{au:a \in F\}
+\end{displaymath}
+If $T$ is invariant on $U$,
+\begin{displaymath}
+Tu=\lambda u,
+\end{displaymath}
+$\lambda$ is an eigenvalue and $u$ is an eigenvector. The set of eigenvectors $U$ equals null$(T-\lambda I)$.
+\paragraph{theorem}: Eigenvectors for distinct eigenvalues are linear independent.
+
+
+\paragraph{Upper Triangular Matrix}
+\begin{enumerate}
+	\item
+	span$(v1,v2...vk)$ is invariant under $T$ for each $k = 1,2...n$.
+	\item
+	$T$ is invertible $\iff$ all entries on the diagonal are nonzero which are eigenvalues.
+\end{enumerate}
+
+\paragraph{adjoint}
+Let $T: V \to W$, the adjoint of $T$ denoted as $T^*$. $T^*w$ is the unique vector such that
+\begin{displaymath}
+<Tv,w>\ =\ <v,T^*w>
+\end{displaymath}
+The matrix of $T^*$ is the conjugate transpose of the matrix of $T$.\\
+$T$ is self-adjoint if $T=T^*$.
+
+\paragraph{normal operator}
+$T \in L(V)$ is normal if $TT^*=T^*T$.\\
+equally $\|Tv\|=\|T^*v\|$
+\paragraph{real spectral theorem}
+$T=T* \iff V$ has an orthogonal basis consisting of eigenvectors of $T$   
+
+\paragraph{normal matrix}:\\
+2-dim real matrix is of the form
+$\begin{bmatrix}
+ a & -b \\
+ b & a 
+ \end{bmatrix}$\\
+n-dim real normal matrix is a block diagonal matrix of the form
+$\begin{bmatrix}
+A_1 && 0 \\
+&...&\\
+0 &&  A_n
+\end{bmatrix}$where each block is 1-dim matrix or $2\times2$ matrix of the form
+$\begin{bmatrix}
+a & -b \\
+b & a 
+\end{bmatrix}$\quad with $b>0$.
+
+\paragraph{Positive semidefinite operator}:\\
+$T \in L(V)$ is called positive if $T$ is self-adjoint and 
+\begin{displaymath}
+\langle Tv,v \rangle \geq 0
+\end{displaymath}
+
+\paragraph{theorem}: Every p.s.d. matrix has an unique p.s.d. square root.
+
+\paragraph{theorem}: For any $T \in L(V)$, $TT^*$ and $T^*T$ are p.s.d. That is obvious for $\mathbb{R}$, Since $AA^\top$ is p.s.d. as $vAA^\top v^\top = \langle vA,vA \rangle \geq 0$ 
+
+\paragraph{isometry}:\\
+$S \in L(V)$ is isometry if
+\begin{displaymath}
+\|Sv\|=\|v\|
+\end{displaymath}for all $v \in V$. We have
+
+\begin{displaymath}
+SS^*=I=S^*S
+\end{displaymath}
+Obviously, $S$ is normal.
+
+\paragraph{polar decomposition}:\\
+$T \in L(V)$, we have 
+\begin{displaymath}
+T=S\sqrt{T^*T}
+\end{displaymath}
+with $S$ is isometry.
+
+\paragraph{singular values}: Eigenvalues of $\sqrt{T^*T}$.
+
+\paragraph{trace}:\\
+Let $A$ is a $n\times n$ matrix.
+\begin{displaymath}
+trace(A)=\sum_i{a_{ii}}=\sum_i{\lambda_i}
+\end{displaymath}
+\paragraph{determinant}:\\
+Let $A$ is a $n\times n$ matrix.
+\begin{displaymath}
+det(A)=\prod_i{\lambda_i}
+\end{displaymath}
+\end{document}
